@@ -1,24 +1,24 @@
 package test;
 
-//²âÊÔ»ñµÃ¼üÅÌÊäÈë
+//æµ‹è¯•è·å¾—é”®ç›˜è¾“å…¥
 import java.util.Scanner;
 
 
 public class TestScanner {
 	public static void main(String[] args) {
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("ÇëÊäÈëÃû×Ö:");
+		System.out.println("è¯·è¾“å…¥åå­—:");
 		String name =scanner.nextLine();
-		System.out.println("ÇëÊäÈëÄãµÄ°®ºÃ:");
+		System.out.println("è¯·è¾“å…¥ä½ çš„çˆ±å¥½:");
 		String favor=scanner.nextLine();
-		System.out.println("ÇëÊäÈëÄãµÄÄêÁä:");
+		System.out.println("è¯·è¾“å…¥ä½ çš„å¹´é¾„:");
 		int age =scanner.nextInt();
 		
 		System.out.println("#############");
 		System.out.println(name);
 		System.out.println(favor);
-		System.out.println("À´µ½µØÇòµÄÌìÊı"+age*365);
-		System.out.println("Àë¿ªµØÇòµÄÌìÊı"+(72-age)*365);
+		System.out.println("æ¥åˆ°åœ°çƒçš„å¤©æ•°"+age*365);
+		System.out.println("ç¦»å¼€åœ°çƒçš„å¤©æ•°"+(72-age)*365);
 	}
 		
 }

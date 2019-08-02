@@ -5,39 +5,39 @@ import javax.swing.*;
 public class BallGame2 extends JFrame{
 	Image ball=Toolkit.getDefaultToolkit().getImage("images/ball.png");
 	Image desk=Toolkit.getDefaultToolkit().getImage("images/desk.jpg");
-	//»­´°¿ÚµÄ·½·¨
-	double x=100; //Ğ¡ÇòµÄºá×ø±ê
-	double y=100;  //Ğ¡ÇòµÄ×İ×ø±ê
-	double degree =3.14/3; //»¡¶È.´Ë´¦µÄ:60¶È
+	//ç”»çª—å£çš„æ–¹æ³•
+	double x=100; //å°çƒçš„æ¨ªåæ ‡
+	double y=100;  //å°çƒçš„çºµåæ ‡
+	double degree =3.14/3; //å¼§åº¦.æ­¤å¤„çš„:60åº¦
 	
 	public void paint(Graphics g) {
-		System.out.println("´°¿Ú±»»­ÁËÒ»´Î");
+		System.out.println("çª—å£è¢«ç”»äº†ä¸€æ¬¡");
 		g.drawImage(desk,0,0,null);
 		g.drawImage(ball,(int)x,(int)y,null);
 		
 		x=x+10*Math.cos(degree);
 		y=y+10*Math.sin(degree);
 		
-		if(y>500-40-30||y<40+40) {  //500ÊÇ´°¿Ú¸ß¶È,40ÊÇ×À×Ó±ß¿ò,30ÊÇÇòÖ±¾¶,×îºóÒ»¸ö40ÊÇ±êÌâÀ¸µÄ¸ß¶È
+		if(y>500-40-30||y<40+40) {  //500æ˜¯çª—å£é«˜åº¦,40æ˜¯æ¡Œå­è¾¹æ¡†,30æ˜¯çƒç›´å¾„,æœ€åä¸€ä¸ª40æ˜¯æ ‡é¢˜æ çš„é«˜åº¦
 			degree=-degree;
 		}
-		//Åöµ½×óÓÒ±ß½ç
+		//ç¢°åˆ°å·¦å³è¾¹ç•Œ
 		if (x<0+40||x>856-40-30) {
 			degree=3.14-degree;
 		}
 		
 	}
-	//´°¿Ú¼ÓÔØ
+	//çª—å£åŠ è½½
 	void launchFrame() {
 		setSize(856,500);
 		setLocation(50,50);
 		setVisible(true);
 		
-		//ÖØ»­´°¿Ú,ÃÀÃë25´Î
+		//é‡ç”»çª—å£,ç¾ç§’25æ¬¡
 		while (true) {
 			repaint();
 			try {
-				Thread.sleep(40);//40ms,1s=1000ms,Ô¼1Ãë»­20´Î´°¿Ú
+				Thread.sleep(40);//40ms,1s=1000ms,çº¦1ç§’ç”»20æ¬¡çª—å£
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -45,9 +45,9 @@ public class BallGame2 extends JFrame{
 		}
 	}
 	
-	//main ·½·¨ÊÇ³ÌĞòÖ´ĞĞµÄÈë¿Ú
+	//main æ–¹æ³•æ˜¯ç¨‹åºæ‰§è¡Œçš„å…¥å£
 	public static void main(String[]args) {
-		System.out.println("ÄãºÃ!");
+		System.out.println("ä½ å¥½!");
 		BallGame2 game=new BallGame2();
 		game.launchFrame();
 	}

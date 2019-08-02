@@ -1,21 +1,21 @@
 package test;
-//²âÊÔifµ¥Ñ¡½á¹¹
+//æµ‹è¯•ifå•é€‰ç»“æ„
 public class testIf {
 	public static void main (String[] args) {
 		//double d=Math.random();
 
-		// ·µ»Ø0µ½1µÄËæ»úÊıs
+		// è¿”å›0åˆ°1çš„éšæœºæ•°s
 		//System.out.println(d);
 		int i=(int)(6*Math.random())+1;
 		System.out.println(i);
 		if (i<=3) {
-			System.out.println("Ğ¡");
+			System.out.println("å°");
 			
 		}
 		else 
-			System.out.println("´ó");
+			System.out.println("å¤§");
 	}
 }
 
-//×¢ÊÍ²âÊÔ
+//æ³¨é‡Šæµ‹è¯•
 

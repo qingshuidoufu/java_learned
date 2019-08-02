@@ -5,12 +5,12 @@ import javax.swing.*;
 public class BallGame extends JFrame{
 	Image ball=Toolkit.getDefaultToolkit().getImage("images/ball.png");
 	Image desk=Toolkit.getDefaultToolkit().getImage("images/desk.jpg");
-	//�����ڵķ���
-	double x=100; //С��ĺ�����
-	double y=100;  //С���������
-	boolean right=true;  //����
+	//画窗口的方法
+	double x=100; //小球的横坐标
+	double y=100;  //小球的纵坐标
+	boolean right=true;  //方向
 	public void paint(Graphics g) {
-		System.out.println("���ڱ�����һ��");
+		System.out.println("窗口被画了一次");
 		g.drawImage(desk,0,0,null);
 		g.drawImage(ball,(int)x,(int)y,null);
 		if (right) {
@@ -19,24 +19,24 @@ public class BallGame extends JFrame{
 		else {
 			x=x-10;
 		}
-		if(x>856-40-30) { //856�Ǵ��ڸ߶�,40�Ǳ߿����,30��С���ֱ��
+		if(x>856-40-30) { //856是窗口高度,40是边框宽度,30是小球的直径
 			right=false;
 		}
-		if(x<40) {//���ӱ߿�Ŀ���
+		if(x<40) {//桌子边框的宽度
 			right=true;
 		}
 	}
-	//���ڼ���
+	//窗口加载
 	void launchFrame() {
 		setSize(856,500);
 		setLocation(50,50);
 		setVisible(true);
 		
-		//�ػ�����,����25��
+		//重画窗口,美秒25次
 		while (true) {
 			repaint();
 			try {
-				Thread.sleep(40);//40ms,1s=1000ms,Լ1�뻭20�δ���
+				Thread.sleep(40);//40ms,1s=1000ms,约1秒画20次窗口
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
@@ -44,9 +44,9 @@ public class BallGame extends JFrame{
 		}
 	}
 	
-	//main �����ǳ���ִ�е����
+	//main 方法是程序执行的入口
 	public static void main(String[]args) {
-		System.out.println("���!");
+		System.out.println("你好!");
 		BallGame game=new BallGame();
 		game.launchFrame();
 	}
