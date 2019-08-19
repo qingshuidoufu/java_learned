@@ -17,7 +17,7 @@ public class TestPersonEncapsulation {
             this.age=age;
         }
         else {
-            System.out.println("请输入正常的年龄"!);
+            System.out.println("请输入正常的年龄");
         }
     }
 
