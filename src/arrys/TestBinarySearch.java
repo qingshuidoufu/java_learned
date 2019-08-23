@@ -9,7 +9,7 @@ public class TestBinarySearch {
         int value = 40;//要查找的值
         System.out.println(Arrays.toString(arr));
         System.out.println(myBinarySearch(arr,value));
-    }        System.out.println(val);
+    }
 
     public static int myBinarySearch(int[] arr,int value) {
         int mid=0;
