@@ -26,6 +26,14 @@ public class MyArrayList <E>{
     }
 
     public MyArrayList(int capacity) {
+        if(capacity<0){
+            throw new RuntimeException("容器容量不能为负数");
+        }else if (capacity==0){
+            elementData=new Object[DEFALT_CAPACITY];
+
+        }else {
+            elementData=new Object[capacity];
+        }
         this.elementData = new Object[capacity];
     }
     public void add (E e){
