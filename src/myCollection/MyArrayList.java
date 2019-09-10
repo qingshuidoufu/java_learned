@@ -64,14 +64,45 @@ public class MyArrayList <E>{
             throw new RuntimeException("索引不合法:"+index);
         }
     }
+    public void remove (E element){
+        //element,将它和所有元素挨个比较,获得第一个为true的,返回
+        for (int i=0;i<size;i++){
+            if (element.equals(get(i))){//容器中所有的比较操作用equal方法
+                //将该元素从此处移除
+                remove(i);
+            }
+        }
+    }
+    public void remove (int index) {
+        //a,b,c,d,e,f,g,h
+        //a,b,c,e,f,g,h
+        int numMoved = elementData.length - index-1;
+        if (numMoved>0){
+            System.arraycopy(elementData,index+1,elementData,index,numMoved);
+            elementData[--size]=null;
+        }
+    }
+    public int size(){
+        return size;
+    }
+    public boolean isEmpty(){
+        return size==0?true:false;
+    }
     public static void main(String[] args) {
         MyArrayList s1=new MyArrayList(20);
         for (int i = 0; i <40 ; i++) {
         s1.add("jack"+i);
         }
-        System.out.println(s1);
+
         s1.set("gcgcgc",10);
+        System.out.println(s1);
         System.out.println(s1.get(10));
+        s1.remove(10);
+        System.out.println(s1);
+        s1.remove("jack11");
+        System.out.println(s1);
+        System.out.println(s1.isEmpty());
+        System.out.println(s1.size);
 
     }
 }
