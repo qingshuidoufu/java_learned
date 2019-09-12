@@ -1,22 +1,20 @@
 package test;
 
-public class TestLinkList {
+public class TestLinkList <E>{
     private Node first;
     private Node last;
     private int size;
     //[]
     //["a","b","c","d","e","f"] 2
     public Object get(int index){
-
+        checkRange(index);
        Node temp=getNode(index);
 
         return temp!=null?temp.element:null;
     }
 public Node getNode(int index){
     Node temp=null;
-    if (index<0||index>size-1){
-        throw new RuntimeException("索引数字不合法"+index);
-    }
+    checkRange(index);
     if (index<(size>>1)){
         temp=first;
         for (int i = 0; i < index; i++) {
@@ -31,8 +29,9 @@ public Node getNode(int index){
     return temp;
 }
 
-public void add(int index,Object obj){
-        Node newNode=new Node(obj);
+public void add(int index,E e){
+        checkRange(index);
+        Node newNode=new Node(e);
         Node temp=getNode(index);
         if (temp!=null){
             Node up=temp.previous;
@@ -44,8 +43,13 @@ public void add(int index,Object obj){
 
 
 }
-    public void add(Object obj){
-        Node node =new Node(obj);
+public void checkRange(int index){
+    if (index<0||index>size-1){
+        throw new RuntimeException("索引数字不合法"+index);
+    }
+}
+    public void add(E e){
+        Node node =new Node(e);
         if (first==null){
            //node.previous=null;
            // node.next=null;
@@ -76,6 +80,7 @@ public void add(int index,Object obj){
 
     }
 public void remove(int index){
+        checkRange(index);
         Node temp=getNode(index);
         if (temp!=null){
             Node up=temp.previous;
@@ -98,7 +103,7 @@ public void remove(int index){
 
 }
     public static void main(String[] args) {
-            TestLinkList list=new TestLinkList();
+            TestLinkList<String> list=new TestLinkList();
             list.add("a");
             list.add("b");
             list.add("c");
