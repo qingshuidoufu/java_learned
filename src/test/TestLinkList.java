@@ -31,7 +31,19 @@ public Node getNode(int index){
     return temp;
 }
 
+public void add(int index,Object obj){
+        Node newNode=new Node(obj);
+        Node temp=getNode(index);
+        if (temp!=null){
+            Node up=temp.previous;
+            up.next=newNode;
+            newNode.previous=up;
+            newNode.next=temp;
+            temp.previous=newNode;
+        }
 
+
+}
     public void add(Object obj){
         Node node =new Node(obj);
         if (first==null){
@@ -96,6 +108,8 @@ public void remove(int index){
         System.out.println(list);
         System.out.println(list.get(1));
         list.remove(3);
+        System.out.println(list);
+        list.add(3,"jack");
         System.out.println(list);
     }
 }
