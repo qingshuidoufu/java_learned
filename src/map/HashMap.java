@@ -6,7 +6,23 @@ import test.Node;
 public class HashMap {
         Node2[] table;  //位桶数组. bucket array
         int size;       //键值对的个数
+    public Object get(Object key){
+        int hash=myHash(key.hashCode(),table.length);
+        Object value=null;
+        if (table[hash]!=null){
+            Node2 temp=table[hash];
+            while(temp!=null){
+                if(temp.key.equals(key)){//相等则返回键值对,返回相应的value
+                    value=temp.value;
+                    break;
+                }else{
+                    temp=temp.next;
+                }
+            }
 
+        }
+        return value;
+    }
     @Override
     public String toString() {
         //{10:aa,20:bb}
@@ -79,7 +95,8 @@ public class HashMap {
         m.put(69,"hh");
         m.put(85,"kk");
         System.out.println(m);
-
+        System.out.println(m.get(53));
+        System.out.println(m.get(85));
 
     }
 }
