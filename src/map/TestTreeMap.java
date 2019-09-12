@@ -9,7 +9,7 @@ public class TestTreeMap {
         treeMap1.put(20,"aa");
         treeMap1.put(3,"bb");
         treeMap1.put(6,"cc");
-        //Set按照key递增的方向排序,map无排序
+        //TreeSet按照key递增的方向排序,HashMap无排序
         for(Integer key:treeMap1.keySet()){
             System.out.println(key+"---"+treeMap1.get(key));
         }

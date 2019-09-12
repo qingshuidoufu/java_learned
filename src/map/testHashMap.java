@@ -1,9 +1,8 @@
 package map;
 
-import com.sun.javafx.sg.prism.NodeEffectInput;
-import test.Node;
+import test.TestLinkList;
 
-public class HashMap<K,V> {
+public class testHashMap<K,V> {
         Node2[] table;  //位桶数组. bucket array
         int size;       //键值对的个数
     public V get(K key){
@@ -39,7 +38,7 @@ public class HashMap<K,V> {
         return sb.toString();
     }
 
-    public HashMap(){
+    public testHashMap(){
         table =new Node2[16];  //长度一般定义成2的整数次幂
     }
     public void put(K key,V value){
@@ -89,7 +88,7 @@ public class HashMap<K,V> {
     }
 
     public static void main(String[] args) {
-        HashMap<Integer,String> m=new HashMap();
+        testHashMap<Integer,String> m=new testHashMap();
         m.put(10,"aa");
         m.put(20,"bb");
         m.put(30,"cc");
@@ -102,5 +101,7 @@ public class HashMap<K,V> {
         System.out.println(m.get(85));
 
     }
+
+
 }
 
