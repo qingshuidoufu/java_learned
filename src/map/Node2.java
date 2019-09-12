@@ -1,9 +1,9 @@
 package map;
 //用于HashMap
-public class Node2 {
+public class Node2<K,V> {
      int hash;
-     Object key;
-     Object value;
+     K key;
+     V value;
      Node2 next;
 
 }

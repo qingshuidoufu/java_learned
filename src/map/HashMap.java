@@ -3,17 +3,17 @@ package map;
 import com.sun.javafx.sg.prism.NodeEffectInput;
 import test.Node;
 
-public class HashMap {
+public class HashMap<K,V> {
         Node2[] table;  //位桶数组. bucket array
         int size;       //键值对的个数
-    public Object get(Object key){
+    public V get(K key){
         int hash=myHash(key.hashCode(),table.length);
-        Object value=null;
+        V value=null;
         if (table[hash]!=null){
             Node2 temp=table[hash];
             while(temp!=null){
                 if(temp.key.equals(key)){//相等则返回键值对,返回相应的value
-                    value=temp.value;
+                    value=(V)temp.value;
                     break;
                 }else{
                     temp=temp.next;
@@ -42,7 +42,7 @@ public class HashMap {
     public HashMap(){
         table =new Node2[16];  //长度一般定义成2的整数次幂
     }
-    public void put(Object key,Object value){
+    public void put(K key,V value){
         Node2 newNode =new Node2();
         newNode.hash=myHash(key.hashCode(),table.length);
         newNode.key=key;
@@ -55,6 +55,7 @@ public class HashMap {
         if (temp==null){
             //此处数组元素为空直接放进去
             table[newNode.hash]=newNode;
+            size++;
         }else{
             //不为空,遍历链表放进去
             while(temp!=null) {
@@ -62,6 +63,7 @@ public class HashMap {
                 if(temp.key.equals(key)){
                     //System.out.println("key重复了");
                     temp.value=value;//只是覆盖value即可,hash,key,next不变
+
                     keyRepeat=true;
                     break;
                 }else{
@@ -73,6 +75,7 @@ public class HashMap {
             }
             if (!keyRepeat){  //不发生key重复,则添加到链表最后
                 iterLast.next=newNode;
+                size++;
             }
 
         }
@@ -86,13 +89,13 @@ public class HashMap {
     }
 
     public static void main(String[] args) {
-        HashMap m=new HashMap();
+        HashMap<Integer,String> m=new HashMap();
         m.put(10,"aa");
         m.put(20,"bb");
         m.put(30,"cc");
         m.put(20,"sss");
         m.put(53,"gg");
-        m.put(69,"hh");
+
         m.put(85,"kk");
         System.out.println(m);
         System.out.println(m.get(53));
