@@ -16,9 +16,13 @@ public class IOTest01 {
         try {
              is=new FileInputStream(src);
             //3.操作(读取)
-            int temp;
-            while ((temp=is.read())!=-1){
-                System.out.println(temp);
+            byte[] flush=new byte[1024*10];//缓冲容器
+            int len=-1;//接受长度
+            //3.操作(分段读取)
+            while ((len=is.read(flush))!=-1){
+                //字节数组还原到字符串
+                String str=new String(flush,0,len);
+                System.out.print(str);
             }
 
             //4.释放资源
