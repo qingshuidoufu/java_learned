@@ -32,7 +32,7 @@ public class BallGame extends JFrame{
 		setLocation(50,50);
 		setVisible(true);
 		
-		//重画窗口,美秒25次
+		//重画窗口,每秒25次
 		while (true) {
 			repaint();
 			try {
