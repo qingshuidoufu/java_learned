@@ -18,7 +18,7 @@ public class TestCollections {
         Collections.reverse(list);//逆序
         System.out.println(list);
 
-        Collections.sort(list);//按照递增的方式排序....自定义类用Comparable接口
+        Collections.sort(list);//按照递增的方式序....自定义类用Comparable排接口
         System.out.println(list);
 
         System.out.println(Collections.binarySearch(list,"jack8"));

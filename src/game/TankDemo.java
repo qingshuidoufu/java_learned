@@ -4,6 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TankDemo extends JFrame {
+    int x;//横坐标
+    int y;//纵坐标
+    int speed;//移动速度
+    int width;//宽度
+    int high;//高度
+    int bulletNumber;//子弹数量
 
     void launchFrame(){
         this.getContentPane().setVisible(false);
@@ -63,9 +69,29 @@ public class TankDemo extends JFrame {
         g.fillPolygon(dx,dy,4);
 
         g.setColor(Color.WHITE);g.fillOval(190,190,20,20);// 机枪炮台
-        g.fillRect(197,165,5,43);
+        g.fillRect(197,165,5,43);//机枪炮管
 
     }
+    void move(){
+
+    }
+    void fire(){
+
+    }
+    void lifeIncrease(){
+
+    }
+    void lifeDecrease(){
+
+    }
+    void boom(){
+
+    }
+    void bulletNumberUp(){
+
+    }
+    void bulletNumberDown(){}
+
 
     public static void main(String[] args) {
                     TankDemo myTank=new TankDemo();
