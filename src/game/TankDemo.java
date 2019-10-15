@@ -1,7 +1,10 @@
 package game;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class TankDemo extends JFrame {
     int x=0;//横坐标
@@ -11,7 +14,8 @@ public class TankDemo extends JFrame {
     int high;//高度
     int bulletNumber;//子弹数量
 
-    void launchFrame(){
+    void launchFrame() throws IOException {
+
         this.getContentPane().setVisible(false);
         setBackground(Color.DARK_GRAY);
         setSize(856,500);
@@ -95,7 +99,7 @@ public class TankDemo extends JFrame {
     void bulletNumberDown(){}
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
                     TankDemo myTank=new TankDemo();
                     myTank.launchFrame();
     }
