@@ -64,18 +64,18 @@ public class MyFrame extends JFrame {
         }
     }
     //内部类帮助我们反复重画窗口
-    class PaintThread extends Thread{
-        @Override
-        public void run(){
-            while (true){
-                repaint();  //重画
-                try {
-                    Thread.sleep(40); //1s=1000ms
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        class PaintThread extends Thread{
+            @Override
+            public void run(){
+                while (true){
+                    repaint();  //重画
+                    try {
+                        Thread.sleep(40); //1s=1000ms
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
-        }
 
     }
 
