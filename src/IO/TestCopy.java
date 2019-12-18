@@ -1,12 +1,19 @@
 package IO;
 
 import java.io.*;
+import java.util.Scanner;
 
 //使用文件输入流和输出流实现文件的拷贝
 public class TestCopy {
     public static void main(String[] args)  {
-        File src =new File("p.jpg");
-        File dest=new File("pcopy.jpg");
+        String myString,copyString;
+        Scanner scanner=new Scanner(System.in);
+        System.out.println("请输入你的源文件名:");
+        myString=scanner.nextLine();
+        System.out.println("请输入你的目标文件名:");
+        copyString=scanner.nextLine();
+        File src =new File(myString);
+        File dest=new File(copyString);
         InputStream is=null;
         OutputStream os=null;
         try {
@@ -19,6 +26,7 @@ public class TestCopy {
                     os.write(flush,0,len);
             }
             os.flush();
+            System.out.println("复制成功!");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
